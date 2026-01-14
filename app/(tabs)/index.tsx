@@ -6,8 +6,13 @@ import ParallaxScrollView from '@/components/parallax-scroll-view';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { Link } from 'expo-router';
+import { View } from 'react-native-reanimated/lib/typescript/Animated';
 
 export default function HomeScreen() {
+    const nombre = "Carlos";
+    const edad = 30;
+    const isPremium = false;
+    const messages = 5;
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
@@ -20,6 +25,13 @@ export default function HomeScreen() {
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="title">Welcome!</ThemedText>
         <HelloWave />
+      </ThemedView>
+      <ThemedView style={styles.stepContainer}>
+        <ThemedText>Hola {nombre}</ThemedText>
+      </ThemedView>
+      <ThemedView style={styles.stepContainer}>
+        <ThemedText type="defaultSemiBold">{isPremium ? "Eres Premium" : "No eres Premium"}</ThemedText>
+        <ThemedText>{messages > 0 ? `Tienes ${messages} mensajes` : "No tienes mensajes"}</ThemedText>
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
         <ThemedText type="subtitle">Step 1: Try it</ThemedText>
